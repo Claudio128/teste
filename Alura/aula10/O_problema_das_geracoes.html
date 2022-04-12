@@ -1,0 +1,22 @@
+<meta charset="UTF-8">
+
+<script>
+    function pulaLinha(){
+        document.write("<br><br>")
+    }
+
+    function mostra(frase){
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var media = 28;
+    var anoInicial = 1500;
+    var anoAtual = 2022;
+    
+    var calculo = anoAtual - anoInicial;
+    var geracao = calculo / 28;
+
+    mostra("Em " + anoInicial + " o Brasil foi descoberto");
+    mostra("E de lá pra cá somos " + Math.round(geracao) + " gerações");
+</script>

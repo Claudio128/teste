@@ -1,0 +1,61 @@
+<meta charset="UTF-8">
+
+<script>
+
+    function pulaLinha() {
+
+        document.write("<br>");
+    }
+
+    function alert(frase) {
+
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function sorteia(n){
+        return Math.round(Math.random() * n);
+    }
+
+    function jogo(){
+
+        var tentativa = 1;
+
+        while(tentativa <= 3){ 
+
+            var numeroPensado = sorteia(10);
+
+            var chute = parseInt(prompt("Chute, qual número você acha que é entre 0 e 10: "));
+
+            if(chute == numeroPensado) {
+
+                alert("Uau! Você acertou, pois eu pensei no " + numeroPensado);
+                break;
+            } 
+            else if(chute < numeroPensado){
+                alert("O número que você digitou, é um número abaixo no qual o computador tinha pensado!");
+                alert("O número que você digitou foi: " + chute + " e o número que o computador pensou foi: " + numeroPensado);
+            }
+            else if(chute > numeroPensado){
+                alert("O número que você digitou, é um número maior no qual o computador tinha pensado!");
+                alert("O número que você digitou foi: " + chute + " e o número que o computador pensou foi: " + numeroPensado);
+            }else{
+                alert("Por favor digitar um NÚMERO entre 0 e 10!");
+                break;
+            }
+
+            tentativa++
+
+        }
+        pulaLinha();
+    }
+    
+    jogo();
+
+    var resposta = prompt("Deseja jogar novamente? Digite s ou n: ").toLowerCase();
+
+    while (resposta == "s"){
+        jogo();
+        var resposta = prompt("Deseja jogar novamente? Digite s ou n: ").toLowerCase();
+    }
+</script>

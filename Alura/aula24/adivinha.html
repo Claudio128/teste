@@ -1,5 +1,8 @@
 <meta charset="UTF-8">
 
+<input/>
+<button>Clique aqui</button>
+
 <script>
 
     function pulaLinha() {
@@ -7,7 +10,7 @@
         document.write("<br>");
     }
 
-    function alert(frase) {
+    function mostra(frase) {
 
         document.write(frase);
         pulaLinha();
@@ -18,44 +21,31 @@
     }
 
     function jogo(){
+            
+        var segredo = sorteia(10);
 
-        var tentativa = 1;
+        if(input.value == segredo) {
 
-        while(tentativa <= 3){ 
-
-            var numeroPensado = sorteia(10);
-
-            var chute = parseInt(prompt("Chute, qual número você acha que é entre 0 e 10: "));
-
-            if(chute == numeroPensado) {
-
-                alert("Uau! Você acertou, pois eu pensei no " + numeroPensado);
-                break;
-            } 
-            else if(chute < numeroPensado){
-                alert("O número que você digitou, é um número abaixo no qual o computador tinha pensado!");
-                alert("O número que você digitou foi: " + chute + " e o número que o computador pensou foi: " + numeroPensado);
-            }
-            else if(chute > numeroPensado){
-                alert("O número que você digitou, é um número maior no qual o computador tinha pensado!");
-                alert("O número que você digitou foi: " + chute + " e o número que o computador pensou foi: " + numeroPensado);
-            }else{
-                alert("Por favor digitar um NÚMERO entre 0 e 10!");
-                break;
-            }
-
-            tentativa++
-
+            alert("Uau! Você acertou, pois eu pensei no " + segredo);
+        } 
+        else if(input.value < segredo){
+            alert("O número que você digitou foi: " + input.value + " e o número que o computador pensou foi: " + segredo);
         }
-        pulaLinha();
-    }
-    
-    jogo();
+        else if(input.value > segredo){
+            alert("O número que você digitou foi: " + input.value + " e o número que o computador pensou foi: " + segredo);
+        }else{
+            alert("Por favor digitar um NÚMERO entre 0 e 10!");
+        }
 
-    var resposta = prompt("Deseja jogar novamente? Digite s ou n: ").toLowerCase();
-
-    while (resposta == "s"){
-        jogo();
-        var resposta = prompt("Deseja jogar novamente? Digite s ou n: ").toLowerCase();
+        input.value = "";
+        input.focus();
+        
     }
+
+    var input = document.querySelector("input");
+    input.focus();
+
+    var button = document.querySelector("button");
+    button.onclick = jogo;
+
 </script>

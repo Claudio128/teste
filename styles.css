@@ -6,12 +6,17 @@ h1 {
     font-weight: normal;
 }
 
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
 main {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 0px 80px
 }
 
 div {
